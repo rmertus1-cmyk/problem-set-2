@@ -11,4 +11,6 @@ arrest_events_raw['arrest_date_event'] = pd.to_datetime(arrest_events_raw.filing
 pred_universe_raw.drop(columns=['filing_date'], inplace=True)
 arrest_events_raw.drop(columns=['filing_date'], inplace=True)
 
-# Inject and save both data frames to `data/` -> 'pred_universe_raw.csv', 'arrest_events_raw.csv'
+
+pred_universe_raw.to_csv('src/data/pred_universe_raw.csv', index=False)
+arrest_events_raw.to_csv('src/data/arrest_events_raw.csv', index=False)

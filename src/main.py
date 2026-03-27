@@ -1,27 +1,19 @@
-'''
-You will run this problem set from main.py, so set things up accordingly
-'''
-
-import pandas as pd
-import etl
-import preprocessing
-import logistic_regression
-import decision_tree
-import calibration_plot
+from part2_preprocessing import preprocess_data
+from part3_logistic_regression import run_logistic_regression
+from part4_decision_tree import run_decision_tree
+from part5_calibration_plot import run_calibration
 
 
-# Call functions / instanciate objects from the .py files
 def main():
+    df_arrests = preprocess_data()
 
-    # PART 1: Instanciate etl, saving the two datasets in `./data/`
+    df_arrests_train, df_arrests_test, _ = run_logistic_regression(df_arrests)
 
-    # PART 2: Call functions/instanciate objects from preprocessing
+    df_arrests_train, df_arrests_test, _ = run_decision_tree(
+        df_arrests_train, df_arrests_test
+    )
 
-    # PART 3: Call functions/instanciate objects from logistic_regression
-
-    # PART 4: Call functions/instanciate objects from decision_tree
-
-    # PART 5: Call functions/instanciate objects from calibration_plot
+    run_calibration(df_arrests_test)
 
 
 if __name__ == "__main__":
